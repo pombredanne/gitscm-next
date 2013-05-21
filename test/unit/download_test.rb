@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DownloadTest < ActiveSupport::TestCase
+class DownloadTest < Test::Unit::TestCase
 
   should belong_to :version
 

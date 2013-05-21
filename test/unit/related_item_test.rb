@@ -1,5 +1,5 @@
 require 'test_helper'
 
-class RelatedItemTest < ActiveSupport::TestCase
+class RelatedItemTest < Test::Unit::TestCase
 
 end

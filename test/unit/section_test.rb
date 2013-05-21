@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SectionTest < ActiveSupport::TestCase
+class SectionTest < Test::Unit::TestCase
 
   should belong_to :chapter
   should have_one(:book).through(:chapter)

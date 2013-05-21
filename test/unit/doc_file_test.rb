@@ -1,7 +1,7 @@
 require 'test_helper'
 
-class DocFileTest < ActiveSupport::TestCase
-  
+class DocFileTest < Test::Unit::TestCase
+
   should have_many :doc_versions
 
 end
