@@ -22,8 +22,7 @@ module Gitscm
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    config.autoload_paths += %w( lib app/presenters )
-    #config.assets.paths << Emoji.images_path
+    config.autoload_paths += %w( lib )
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif *.tff *.woff *.eot emoji/*.png)
     config.generators do |g|
       g.test_framework      :rspec, fixture: true
