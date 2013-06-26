@@ -3,10 +3,14 @@
 # t.belongs_to  :book
 # t.timestamps
 class Chapter < ActiveRecord::Base
-  default_scope :order => 'number'
+
   belongs_to :book
   has_many :sections
-  has_many :chapters, :through => :book
+  has_many :chapters, through: :book
+
+  validates :title, :number, presence: true
+
+  default_scope { order('number') }
 
   def prev
     num = self.number - 1

@@ -26,19 +26,16 @@ gem 'newrelic_rpm',    '~> 3.6.2.96'
 gem 'exceptional'
 gem 'tire'
 gem "feedzirra"
-gem 'protected_attributes'
 
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
-  gem 'sass-rails', '~> 4.0.0'
-  gem 'compass-rails'
-  gem 'coffee-rails', '~> 4.0.0'
-  gem 'uglifier', '>= 1.0.3'
- # gem 'therubyracer', '0.11.4', require: 'v8'
-end
-
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
+gem 'compass-rails', github: 'milgner/compass-rails', ref: '1749c06f15dc4b058427e7969810457213647fb8'
+gem 'therubyracer'
 gem 'jquery-rails'
+
 #gem 'less-rails-bootstrap'
 
 group :production do
@@ -48,14 +45,12 @@ end
 group :development do
   gem "sqlite3"
   gem "sqlite3-ruby"
-  gem "shotgun"
   gem "taps"
 end
 
 group :test do
   gem 'fabrication'
+  gem 'faker'
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
-  gem 'shoulda-matchers', git: "git://github.com/thoughtbot/shoulda-matchers.git", branch: "dp-rails-four"
-  gem 'shoulda'
+  gem 'simplecov', require: false
 end

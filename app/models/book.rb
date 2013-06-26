@@ -1,6 +1,10 @@
 # t.string      :code
 # t.timestamps
 class Book < ActiveRecord::Base
+
   has_many :chapters
-  has_many :sections, :through => :chapters
+  has_many :sections, through: :chapters
+
+  validates :code, presence: true
+
 end

@@ -12,13 +12,15 @@ class Section < ActiveRecord::Base
 
   include Searchable
 
-  default_scope :order => 'number'
-
   belongs_to :chapter
-  has_one :book, :through => :chapter
+  has_one :book, through: :chapter
   before_save :set_slug
-  after_save :index
-  has_many :sections, :through => :chapter
+  after_save :search_index
+  has_many :sections, through: :chapter
+
+  validates :title, :number, presence: true
+
+  default_scope { order('number') }
 
   def get_related(limit = 10)
     ri = RelatedItem.where(:related_type => 'book', :related_id => slug).order('score DESC').limit(limit)
@@ -69,7 +71,7 @@ class Section < ActiveRecord::Base
     self.chapter.number.to_s + '.' + self.number.to_s
   end
 
-  def index
+  def search_index
     code = self.book.code
     data = {
       'id'        => "#{code}---#{self.slug}",

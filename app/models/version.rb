@@ -4,13 +4,15 @@
 # t.datetime :committed
 # t.timestamps
 class Version < ActiveRecord::Base
-  validates :name, :uniqueness => true
+
 
   has_many :doc_versions
   has_many :docs, :through => :doc_versions
   has_many :downloads
 
   before_save :save_version_order
+
+  validates :name, :uniqueness => true
 
   def save_version_order
     self.vorder = Version.version_to_num(self.name)
@@ -25,7 +27,7 @@ class Version < ActiveRecord::Base
     mult = 1000000
     numbers = version.split('.')
     numbers.each do |x|
-      version_int += x.to_f * mult 
+      version_int += x.to_f * mult
       mult = mult / 100.0
     end
     version_int

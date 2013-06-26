@@ -8,3 +8,4 @@ Rake.application.options.trace = true
 
 Gitscm::Application.load_tasks
 
+task :default => :spec
