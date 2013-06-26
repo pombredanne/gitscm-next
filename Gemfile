@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.0.rc1'
-#gem 'rails', '3.2.13'
+gem 'rails', '4.0.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -32,9 +31,9 @@ gem 'protected_attributes'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', '~> 4.0.0.rc1'
+  gem 'sass-rails', '~> 4.0.0'
   gem 'compass-rails'
-  gem 'coffee-rails', '~> 4.0.0.rc1'
+  gem 'coffee-rails', '~> 4.0.0'
   gem 'uglifier', '>= 1.0.3'
  # gem 'therubyracer', '0.11.4', require: 'v8'
 end
@@ -54,6 +53,8 @@ group :development do
 end
 
 group :test do
+  gem 'fabrication'
+  gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers', git: "git://github.com/thoughtbot/shoulda-matchers.git", branch: "dp-rails-four"
   gem 'shoulda'
