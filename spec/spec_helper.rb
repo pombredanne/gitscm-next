@@ -3,7 +3,16 @@ ENV["RAILS_ENV"] ||= 'test'
 
 if ENV['COVERAGE']
   require 'simplecov'
-  SimpleCov.start 'rails'
+  SimpleCov.start do
+    add_filter '/spec/'
+    add_filter '/test/'
+    add_filter '/config/'
+
+    add_group 'Controllers', 'app/controllers'
+    add_group 'Models', 'app/models'
+    add_group 'Helpers', 'app/helpers'
+    add_group 'Libraries', 'lib'
+  end
 end
 
 require File.expand_path("../../config/environment", __FILE__)
@@ -67,4 +76,18 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
 end

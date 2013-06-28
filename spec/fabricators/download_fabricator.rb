@@ -1,0 +1,2 @@
+Fabricator(:download) do
+end

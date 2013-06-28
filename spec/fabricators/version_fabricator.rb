@@ -1,0 +1,2 @@
+Fabricator(:version) do
+end

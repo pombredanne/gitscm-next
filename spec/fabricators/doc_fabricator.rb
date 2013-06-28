@@ -1,0 +1,2 @@
+Fabricator(:doc) do
+end
