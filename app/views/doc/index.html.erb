@@ -1,0 +1,126 @@
+<% @section = "documentation" %>
+<% @page_title = "Git - Documentation" %>
+<% content_for :sidebar do %>
+  <%= render 'shared/book' %>
+<% end %>
+<div id="main">
+  <h1>Documentation</h1>
+  <h2>Reference</h2>
+  <div class="callout ref-manual">
+    <h3>
+      <%= link_to "Reference Manual", "/docs" %>
+    </h3>
+    <p>
+      The official and comprehensive <strong>man pages</strong> that are included in the Git package itself.
+    </p>
+  </div>
+  <p class="quickref">
+    Quick reference guides:
+    <%= link_to "Heroku Cheat Sheet", "https://na1.salesforce.com/help/doc/en/salesforce_git_developer_cheatsheet.pdf" %>
+    <small class="light">(PDF) &nbsp;|&nbsp;</small>
+    <%= link_to "Visual Git Cheat Sheet", "http://ndpsoftware.com/git-cheatsheet.html" %>
+    <small class="light">(SVG | PNG)</small>
+  </p>
+  <h2>Book</h2>
+  <div id="book-container">
+    <div id="book-intro">
+      <p>
+        Pro Git is written by Scott Chacon and published by Apress.
+      </p>
+      <p>
+        Print copies can be purchased from <a href="http://www.amazon.com/gp/product/1430218339?ie=UTF8&camp=1789&creative=9325&creativeASIN=1430218339&linkCode=as2&tag=git-sfconservancy-20">Amazon</a> and <a href="https://github.s3.amazonaws.com/media/progit.en.pdf">PDF</a>, <a href="https://github.s3.amazonaws.com/media/pro-git.en.mobi">mobi</a>, and <a href="https://github.s3.amazonaws.com/media/progit.epub">ePub</a> versions are available for free.
+      </p>
+      <p>
+        <a href="#" id="open-book">Back to book →</a>
+      </p>
+      <p class="license">
+        <img class="creative-commons" height="28" src="/images/creative-commons@2x.png" width="115"/>
+        All content under the Creative Commons Attribution Non Commercial Share Alike 3.0 license.
+      </p>
+    </div>
+    <div id="flippy-book">
+      <div id="book-inside-page">
+        <span class="header">Scott Chacon</span>
+        <ol class="book-toc">
+          <% @book.chapters.where("number >= 6").each do |chapter| %>
+            <li class="chapter">
+              <h2>
+                <%= chapter.number.to_s + '.' %>
+                <a href="/book/<%= @book.code %>/<%= chapter.sections.first.slug %>">
+                  <%= chapter.title %>
+                </a>
+              </h2>
+            </li>
+          <% end %>
+          <li class="chapter">
+            <h2><a href="/book/commands">Index of Commands</a></h2>
+          </li>
+        </ol>
+      </div>
+      <div class="open" id="book-cover">
+        <div class="face" id="book-cover-outside">
+          Pro Git
+        </div>
+        <div class="face" id="book-cover-inside">
+          <span class="header">Pro Git</span>
+          <ol class="book-toc">
+            <% @book.chapters.where("number < 6").each do |chapter| %>
+              <li class="chapter">
+                <h2>
+                  <%= chapter.number.to_s + '.' %>
+                  <a href="/book/<%= @book.code %>/<%= chapter.sections.first.slug %>">
+                    <%= chapter.title %>
+                  </a>
+                </h2>
+              </li>
+            <% end %>
+          </ol>
+          <a href="#" id="about-book">Book information and downloads</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2>Videos</h2>
+  <% groups = @videos[0,4].group_by { |i| i[0] % 2 } %>
+  <div class="two-column">
+    <div class="column-left">
+      <ul class="video-thumbnails">
+        <% groups[1].each do |video| %>
+          <li>
+            <%= link_to(image_tag("video/ep#{ video[0] }.png"), "/video/#{ video[4] }") %>
+            <h4>
+              <%= link_to video[3], "/video/#{ video[4] }" %>
+            </h4>
+            <p class="description">
+              <%= raw "<strong>Length:</strong> #{video[5]}" %>
+            </p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="column-right">
+      <ul class="video-thumbnails">
+        <% groups[0].each do |video| %>
+          <li>
+            <%= link_to(image_tag("video/ep#{ video[0] }.png"), "/video/#{ video[4] }") %>
+            <h4>
+              <%= link_to video[3], "/video/#{ video[4] }" %>
+            </h4>
+            <p class="description">
+              <%= raw "<strong>Length:</strong> #{video[5]}" %>
+            </p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <p>
+    <strong>
+      <%= link_to "See all videos →", "/videos" %>
+    </strong>
+  </p>
+  <h2>External Links</h2>
+  <p>
+    The <a href="/documentation/external-links">External Links section</a> is a curated, ever-evolving collection of tutorials, books, videos, and other Git resources.
+  </p>
+</div>

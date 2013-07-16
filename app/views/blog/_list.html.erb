@@ -1,0 +1,10 @@
+<h2>
+  All Posts
+</h2>
+<% list_posts.each do |entry| %>
+  <p>
+    <strong>
+      <%= link_to entry[:title], format_path(entry) %>
+    </strong>
+  </p>
+<% end %>

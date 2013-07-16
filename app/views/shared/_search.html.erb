@@ -1,0 +1,36 @@
+<header>Search Results</header>
+<table>
+  <tr class="show-all">
+    <td class="category">&nbsp;</td>
+    <td class="matches">
+      <ul>
+        <li>
+          <a href="/search/results?search=<%= @term %>">Show all results...</a>
+        </li>
+      </ul>
+    </td>
+  </tr>
+  <% @data[:results].each do |cat| %>
+    <tr>
+      <td class="category">
+        <%= cat[:category] %>
+      </td>
+      <td class="matches">
+        <ul>
+          <% cat[:matches].each do |match| %>
+            <li>
+              <a href="<%= match[:url] %>">
+                <%= match[:name] %>
+                <% if match[:meta] %>
+                  <span class="metadata">
+                    <%= match[:meta] %>
+                  </span>
+                <% end %>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      </td>
+    </tr>
+  <% end %>
+</table>

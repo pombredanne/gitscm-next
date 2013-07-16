@@ -1,0 +1,13 @@
+<% @section    = 'blog' %>
+<% content_for :sidebar do %>
+  <%= render 'list' %>
+<% end %>
+<div class="book" id="main">
+  <h1>
+    <%= @frontmatter['title'] %>
+    <small class="subheader">
+      <%= "by #{@frontmatter['author']}" unless @frontmatter['author'].nil? %>
+    </small>
+  </h1>
+  ~raw @content
+</div>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% if @page_title %>
+      <title>
+        <%= @page_title %>
+      </title>
+    <% else %>
+      <title>Git</title>
+    <% end %>
+    <meta charset="utf-8"/>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+    <link href="/favicon.png" rel="shortcut icon" type="image/png"></link>
+    <%= stylesheet_link_tag "git-scm.css" %>
+    <%= javascript_include_tag "modernizr.js", "modernizr-tests.js" %>
+    <!--[if (gte IE 6)&(lte IE 8)]
+      <script src="/javascripts/selectivizr-min.js" type="text/javascript"></script>
+    -->
+    <%= javascript_include_tag "http://use.typekit.com/jsq2fql.js" %>
+    <script>
+      
+      try{Typekit.load();}catch(e){}
+
+
+    </script>
+  </head>
+  <body id="<%= @section %>">
+    <div class="inner">
+      <%= partial 'shared/header' %>
+    </div>
+    <% if @section == 'home' %>
+      <div id="masthead">
+        <div class="inner">
+          <p>
+            Git is a <a href="/about/free-and-open-source">free and open source</a> distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
+          </p>
+          <p>
+            Git is <a href="/documentation">easy to learn</a> and has a <a href="/about/small-and-fast">tiny footprint with lightning fast performance</a>. It outclasses SCM tools like Subversion, CVS, Perforce, and ClearCase with features like <a href="/about/branching-and-merging">cheap local branching</a>, convenient <a href="/about/staging-area">staging areas</a>, and <a href="/about/distributed">multiple workflows</a>.
+          </p>
+          <p class="promo">
+            <img src="https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/121/completed-try-git-1d5111823aae2bb9d14fbcb663998353.png" height="42" width="42" style="float: left; margin: -2px 4px 0 0;"/> Learn Git in your browser for free with <a href="http://try.github.com">Try Git</a>.
+          </p>
+          <img class="illustration" src="images/branching-illustration@2x.png" width="389" height="251" />
+        </div>
+      </div>
+      <div id="content-wrapper">
+        <div class="inner">
+          <%= yield %>
+          <%= partial 'shared/footer' %>
+        </div>
+      </div>
+    <% else %>
+      <div class="inner">
+        <div id="content-wrapper">
+          <aside class="sidebar">
+            <nav>
+              <ul>
+                <li>
+                  <%= link_to "About", "/about", ({:class => (@section == 'about') ? 'active' : ''}) %>
+                </li>
+                <li>
+                  <%= link_to "Documentation", "/doc", ({:class => (@section == 'documentation') ? 'active' : ''}) %>
+                  <ul>({:class => (@section == 'documentation') ? 'expanded' : ''})
+                    <li>
+                      <%= link_to "Reference", "/docs", ({:class => (@subsection == 'reference') ? 'active' : ''}) %>
+                    </li>
+                    <li>
+                      <%= link_to "Book", "/book", ({:class => (@subsection == 'book') ? 'active' : ''}) %>
+                    </li>
+                    <li>
+                      <%= link_to "Blog", "/blog", ({:class => (@subsection == 'blog') ? 'active' : ''}) %>
+                    </li>
+                    <li>
+                      <%= link_to "Videos", "/videos", ({:class => (@subsection == 'videos') ? 'active' : ''}) %>
+                    </li>
+                    <li>
+                      <%= link_to "External Links", "/doc/ext", ({:class => (@subsection == 'external-links') ? 'active' : ''}) %>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <%= link_to "Blog", "/blog", ({:class => (@section == 'blog') ? 'active' : ''}) %>
+                </li>
+                <li>
+                  <%= link_to "Downloads", "/downloads", ({:class => (@section == 'downloads') ? 'active' : ''}) %>
+                  <ul>({:class => (@section == 'downloads') ? 'expanded' : ''})
+                    <li>
+                      <%= link_to "GUI Clients", "/downloads/guis", ({:class => (@subsection == 'guis') ? 'active' : ''}) %>
+                    </li>
+                    <li>
+                      <%= link_to "Logos", "/downloads/logos", ({:class => (@subsection == 'logos') ? 'active' : ''}) %>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <%= link_to "Community", "/community", ({:class => (@section == 'community') ? 'active' : ''}) %>
+                </li>
+              </ul>
+            </nav>
+            <% if content_for(:sidebar) %>
+              <hr class="sidebar"/>
+              <%= yield :sidebar %>
+            <% end %>
+          </aside>
+          <div id="content">
+            <%= yield %>
+          </div>
+        </div>
+        <%= partial 'shared/footer' %>
+      </div>
+    <% end %>
+  </body>
+</html>
