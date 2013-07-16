@@ -37,7 +37,7 @@
   width: 601px;
   height: 402px;
   position: relative;
-  background: transparent url(/images/bg/flippy-book.png) 0px 0 no-repeat;
+  background: transparent url(/assets/bg/flippy-book.png) 0px 0 no-repeat;
   @include perspective(1500);
 }
 #flippy-book #book-cover {
@@ -65,7 +65,7 @@
   width: 298px;
   height: 398px;
   color: black;
-  @include background-image-2x(/images/pro-git-298x398, 298px, 398px, 0 0, no-repeat, jpg);
+  @include background-image-2x(/assets/pro-git-298x398, 298px, 398px, 0 0, no-repeat, jpg);
   background-color: #000102;
   text-indent: -9999px;
   cursor: pointer;
@@ -85,7 +85,7 @@
   width: 298px;
   height: 398px;
   right: 4px;
-  background: #fff url(/images/bg/flippy-book-inside-cover.png) 0 0 no-repeat;
+  background: #fff url(/assets/bg/flippy-book-inside-cover.png) 0 0 no-repeat;
 }
 .three-dee #flippy-book #book-cover-inside {
   @include rotateY(180deg);
@@ -120,7 +120,7 @@
   font-size: 12px;
   color: $light-font-color;
   padding-left: 22px;
-  @include background-image-2x(/images/icons/info, 18px, 17px, 40px 1px);
+  @include background-image-2x(/assets/icons/info, 18px, 17px, 40px 1px);
   &.visible {
     @include inline-block;
   }

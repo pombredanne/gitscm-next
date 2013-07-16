@@ -22,14 +22,6 @@ module ApplicationHelper
     "https://raw.github.com/git/git/master/Documentation/RelNotes/#{self.latest_version}.txt"
   end
 
-  # overriding this because we're not using asset pipeline for images,
-  # but jason is using image_tag
-  def image_tag(image, options = {})
-    out = "<img src='/images/" + image + "'"
-    out += " width='" + options[:width].to_s + "'" if options[:width]
-    out += " height='" + options[:height].to_s + "'" if options[:height]
-    out += " />"
-    raw out
-  end
+
 
 end

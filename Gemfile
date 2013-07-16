@@ -7,48 +7,50 @@ gem 'rails', '4.0.0'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'puma'
-gem 'json'
-gem 'thin'
-gem 'faraday'
-gem 'yajl-ruby'
-gem 'excon'
-gem 'haml'
-gem 'tilt'
-gem 'rest-client'
-gem 'netrc'
-gem 'launchy'
-gem 'rubyzip'
-gem 'octokit'
+gem 'exceptional'
 gem 'dalli'
 gem 'diff-lcs'
-gem 'redcarpet'
-gem 'nestful'
-gem "awesome_print"
-gem 'newrelic_rpm',    '~> 3.6.2.96'
-gem 'exceptional'
-gem 'tire'
+gem 'excon'
+gem 'faraday'
 gem "feedzirra"
+gem 'json'
+gem 'launchy'
+gem 'puma'
+gem 'octokit'
+gem 'nestful'
+gem 'netrc'
+gem 'newrelic_rpm',    '~> 3.6.2.96'
+gem 'redcarpet'
+gem 'rest-client'
+gem 'rubyzip'
+gem 'tire'
+gem 'yajl-ruby'
 
 # Gems used only for assets and not required
 # in production environments by default.
-gem 'sass-rails'
-gem 'uglifier'
-gem 'coffee-rails'
+gem 'sass-rails', '~> 4.0.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.0.0'
 gem 'compass-rails', github: 'milgner/compass-rails', ref: '1749c06f15dc4b058427e7969810457213647fb8'
 gem 'therubyracer'
 gem 'jquery-rails'
 
-#gem 'less-rails-bootstrap'
-
 group :production do
   gem "pg"
+  gem 'rails_12factor'
+#  gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
+#  gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
 end
 
 group :development do
   gem "sqlite3"
   gem "sqlite3-ruby"
   gem "taps"
+end
+
+group :development, :test do
+  gem 'pry'
+  gem 'pry-debugger'
 end
 
 group :test do

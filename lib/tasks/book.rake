@@ -1,6 +1,4 @@
 require 'redcarpet'
-require 'nestful'
-require 'awesome_print'
 require 'octokit'
 require 'digest/sha1'
 
@@ -59,7 +57,7 @@ def generate_pages(lang, chapter, content, sha)
   raw.gsub! /<table>/, "<table class='ref'>"
 
   sections = raw.split('<h2')
-  
+
   section = 0
   # create book (if needed)
   book = Book.where(:code => lang).first_or_create

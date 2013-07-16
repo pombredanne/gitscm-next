@@ -9,5 +9,5 @@
       <%= "by #{@frontmatter['author']}" unless @frontmatter['author'].nil? %>
     </small>
   </h1>
-  ~raw @content
+  <%= raw @content %>
 </div>

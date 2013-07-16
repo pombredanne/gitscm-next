@@ -1,5 +1,3 @@
-require 'awesome_print'
-require 'nestful'
 
 # bundle exec rake related
 CONTENT_SERVER = ENV["CONTENT_SERVER"] || "http://localhost:3000"

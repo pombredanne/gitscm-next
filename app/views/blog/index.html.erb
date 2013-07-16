@@ -12,5 +12,5 @@
       <%= "by #{@newest_content[1]['author']}" unless @newest_content[1]['author'].nil? %>
     </small>
   </h1>
-  ~raw @newest_content[0]
+  <%= raw @newest_content[0] %>
 </div>

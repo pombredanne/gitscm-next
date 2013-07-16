@@ -3,7 +3,7 @@ body {
   line-height: $base-line-height;
   font-family: $base-font-family;
   color: $font-color;
-  background: #f0efe7 url(/images/bg/body.jpg);
+  background: #f0efe7 url(/assets/bg/body.jpg);
 }
 
 // windows chrome makes a mess of Adelle web font
@@ -68,7 +68,7 @@ aside {
   height: 295px;
   margin-top: -20px;
   margin-bottom: 2em;
-  @include background-image-2x(/images/bg/isometric-grid, 35px, 21px, top right, repeat);
+  @include background-image-2x(/assets/bg/isometric-grid, 35px, 21px, top right, repeat);
   .inner {
     padding-top: 20px;
     p {
@@ -192,7 +192,7 @@ p.center {
 }
 
 .callout.downloading {
-  background: $callout-color url(/images/icons/download.png) 24px 24px no-repeat;
+  background: $callout-color url(/assets/icons/download.png) 24px 24px no-repeat;
   padding: 20px 30px 20px 100px !important;
   h3 {
     font-size: 18px;
@@ -299,7 +299,7 @@ footer {
   }
   .site-source {
     float: left;
-    @include background-image-2x(/images/icons/code, 38px, 23px, 0 2px);
+    @include background-image-2x(/assets/icons/code, 38px, 23px, 0 2px);
     padding-left: 46px;
   }
   .sfc-member {

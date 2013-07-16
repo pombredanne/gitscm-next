@@ -107,7 +107,7 @@ $monitor-height: 271px;
 }
 
 .monitor {
-  @include background-image-2x(/images/monitor-default, $monitor-width, $monitor-height);
+  @include background-image-2x(/assets/monitor-default, $monitor-width, $monitor-height);
   padding-top: 45px;
   padding-left: 40px;
   height: $monitor-height - 45;
@@ -154,17 +154,17 @@ $monitor-height: 271px;
     }
   }
   &.mac {
-    @include background-image-2x(/images/monitor-mac, $monitor-width, $monitor-height);
+    @include background-image-2x(/assets/monitor-mac, $monitor-width, $monitor-height);
     padding-top: 36px;
     padding-left: 40px;
     height: $monitor-height - 36;
     width: $monitor-width - 40;
   }
   &.windows {
-    @include background-image-2x(/images/monitor-windows, $monitor-width, $monitor-height);
+    @include background-image-2x(/assets/monitor-windows, $monitor-width, $monitor-height);
   }
   &.linux {
-    @include background-image-2x(/images/monitor-linux, $monitor-width, $monitor-height);
+    @include background-image-2x(/assets/monitor-linux, $monitor-width, $monitor-height);
   }
 }
 
@@ -195,55 +195,55 @@ $monitor-height: 271px;
         opacity: 1;
       }
       &.facebook {
-        background-image: url(/images/company-project-logos/facebook.png);
+        background-image: url(/assets/company-project-logos/facebook.png);
       }
       &.google {
-        @include background-image-2x(/images/company-project-logos/google, 108px, 65px);
+        @include background-image-2x(/assets/company-project-logos/google, 108px, 65px);
       }
       &.twitter {
-        @include background-image-2x(/images/company-project-logos/twitter, 108px, 65px);
+        @include background-image-2x(/assets/company-project-logos/twitter, 108px, 65px);
       }
       &.microsoft {
-        @include background-image-2x(/images/company-project-logos/microsoft, 108px, 65px);
+        @include background-image-2x(/assets/company-project-logos/microsoft, 108px, 65px);
       }
       &.netflix {
-        @include background-image-2x(/images/company-project-logos/netflix, 108px, 65px);
+        @include background-image-2x(/assets/company-project-logos/netflix, 108px, 65px);
       }
       &.linked-in {
-        @include background-image-2x(/images/company-project-logos/linked-in, 108px, 65px);
+        @include background-image-2x(/assets/company-project-logos/linked-in, 108px, 65px);
       }
       &.linux {
-        @include background-image-2x(/images/company-project-logos/linux, 108px, 65px);
+        @include background-image-2x(/assets/company-project-logos/linux, 108px, 65px);
       }
       &.perl {
-        @include background-image-2x(/images/company-project-logos/perl, 108px, 65px);
+        @include background-image-2x(/assets/company-project-logos/perl, 108px, 65px);
       }
       &.postgresql {
-        @include background-image-2x(/images/company-project-logos/postgresql, 108px, 65px);
+        @include background-image-2x(/assets/company-project-logos/postgresql, 108px, 65px);
       }
       &.facebook {
-        @include background-image-2x(/images/company-project-logos/facebook, 108px, 65px);
+        @include background-image-2x(/assets/company-project-logos/facebook, 108px, 65px);
       }
       &.android {
-        @include background-image-2x(/images/company-project-logos/android, 108px, 65px);
+        @include background-image-2x(/assets/company-project-logos/android, 108px, 65px);
       }
       &.rails {
-        @include background-image-2x(/images/company-project-logos/rails, 108px, 65px);
+        @include background-image-2x(/assets/company-project-logos/rails, 108px, 65px);
       }
       &.qt {
-        @include background-image-2x(/images/company-project-logos/qt, 108px, 65px);
+        @include background-image-2x(/assets/company-project-logos/qt, 108px, 65px);
       }
       &.gnome {
-        @include background-image-2x(/images/company-project-logos/gnome, 108px, 65px);
+        @include background-image-2x(/assets/company-project-logos/gnome, 108px, 65px);
       }
       &.eclipse {
-        @include background-image-2x(/images/company-project-logos/eclipse, 108px, 65px);
+        @include background-image-2x(/assets/company-project-logos/eclipse, 108px, 65px);
       }
       &.kde {
-        @include background-image-2x(/images/company-project-logos/kde, 108px, 65px);
+        @include background-image-2x(/assets/company-project-logos/kde, 108px, 65px);
       }
       &.x {
-        @include background-image-2x(/images/company-project-logos/x, 108px, 65px);
+        @include background-image-2x(/assets/company-project-logos/x, 108px, 65px);
       }
     }
   }
@@ -255,24 +255,24 @@ a.icon {
   line-height: 36px;
   @include inline-block;
   &.gui {
-    @include background-image-2x(/images/icons/gui, 18px, 24px, 6px 3px);
+    @include background-image-2x(/assets/icons/gui, 18px, 24px, 6px 3px);
   }
   &.older-releases {
-    @include background-image-2x(/images/icons/box, 22px, 20px, 0 6px);
+    @include background-image-2x(/assets/icons/box, 22px, 20px, 0 6px);
   }
   &.windows {
-    @include background-image-2x(/images/icons/windows, 24px, 21px, 0 6px);
+    @include background-image-2x(/assets/icons/windows, 24px, 21px, 0 6px);
   }
   &.mac {
-    @include background-image-2x(/images/icons/apple, 17px, 21px, 5px 4px);
+    @include background-image-2x(/assets/icons/apple, 17px, 21px, 5px 4px);
   }
   &.linux {
-    @include background-image-2x(/images/icons/linux, 17px, 21px, 6px 6px);
+    @include background-image-2x(/assets/icons/linux, 17px, 21px, 6px 6px);
   }
   &.solaris {
-    @include background-image-2x(/images/icons/solaris, 25px, 12px, 0 10px);
+    @include background-image-2x(/assets/icons/solaris, 25px, 12px, 0 10px);
   }
   &.source {
-    @include background-image-2x(/images/icons/source-code, 25px, 20px, 0 6px);
+    @include background-image-2x(/assets/icons/source-code, 25px, 20px, 0 6px);
   }
 }

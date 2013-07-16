@@ -22,7 +22,7 @@
   }
   .column-right {
     width: 45%;
-  } 
+  }
   p {
     padding-bottom: 1em;
     line-height: 1.4;
@@ -30,7 +30,7 @@
 }
 
 .callout.downloading {
-  background: $callout-color url(/images/icons/download.png) 24px 24px no-repeat;
+  background: $callout-color url(/assets/icons/download.png) 24px 24px no-repeat;
   padding: 20px 30px 20px 100px !important;
   h3 {
     font-size: 18px;
@@ -98,7 +98,7 @@
 }
 
 #os-filter-count {
-  color: $orange; 
+  color: $orange;
   display: none;
   left: 12px;
   position: relative;
