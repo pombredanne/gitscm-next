@@ -22,7 +22,7 @@ read chapters 2 and 3 of this book before reading this post.</p>
 
 <h2>The Three Trees of Git</h2>
 
-<img src="/images/reset/trees.png"/><br/>
+<img src="/assets/reset/trees.png"/><br/>
 
 <p>The way I now like to think about <code>reset</code> and <code>checkout</code>
 is through the mental frame of Git being a content manager of three different
@@ -65,10 +65,10 @@ Here is an example of getting the actual directory listing and SHA checksums
 for each file in the HEAD snapshot:</p>
 
 <pre>
-$ cat .git/HEAD 
+$ cat .git/HEAD
 ref: refs/heads/master
 
-$ cat .git/refs/heads/master 
+$ cat .git/refs/heads/master
 e9a570524b63d2a2b3a7c3325acf5b89bbeb131e
 
 $ git cat-file -p e9a570524b63d2a2b3a7c3325acf5b89bbeb131e
@@ -101,9 +101,9 @@ to think of it as <b>the Index is the snapshot of your next commit</b>.
 
 <pre>
 $ git ls-files -s
-100644 a906cb2a4a904a152e80877d4088654daad0c859 0	README
-100644 8f94139338f9404f26296befa88755fc2598c289 0	Rakefile
-100644 47c6340d6459e05787f644c2447d2595f5d3a54b 0	lib/simplegit.rb
+100644 a906cb2a4a904a152e80877d4088654daad0c859 0 README
+100644 8f94139338f9404f26296befa88755fc2598c289 0 Rakefile
+100644 47c6340d6459e05787f644c2447d2595f5d3a54b 0 lib/simplegit.rb
 </pre>
 
 <h3 class="subtitle">
@@ -135,14 +135,14 @@ $ tree
 better states by manipulating these three trees, or collections of contents
 of files.</p>
 
-<center><img width="400px" src="/images/reset/workflow.png"/></center><br/>
+<center><img width="400px" src="/assets/reset/workflow.png"/></center><br/>
 
 <p>Let's visualize this process.  Say you go into a new directory with a single
 file in it. We'll call this V1 of the file and we'll indicate it in blue.
 Now we run <code>git init</code>, which will create a Git repository with a
 HEAD reference that points to an unborn branch (aka, <i>nothing</i>)</p>
 
-<center><img width="500px" src="/images/reset/ex2.png"/></center><br/>
+<center><img width="500px" src="/assets/reset/ex2.png"/></center><br/>
 
 <p>At this point, only the <b>Working Directory</b> tree has any content.</p>
 
@@ -150,13 +150,13 @@ HEAD reference that points to an unborn branch (aka, <i>nothing</i>)</p>
 content in your Working Directory and populate our Index with the updated
 content</p>
 
-<center><img width="500px" src="/images/reset/ex3.png"/></center><br/>
+<center><img width="500px" src="/assets/reset/ex3.png"/></center><br/>
 
 <p>Then we run <code>git commit</code> to take what the Index looks like now
 and save it as a permanent snapshot pointed to by a commit, which HEAD is then
 updated to point at.</p>
 
-<center><img width="500px" src="/images/reset/ex4.png"/></center><br/>
+<center><img width="500px" src="/assets/reset/ex4.png"/></center><br/>
 
 <p>At this point, all three of the trees are the same.  If we run
 <code>git status</code> now, we'll see no changes because they're all the
@@ -165,14 +165,14 @@ same.</p>
 <p>Now we want to make a change to that file and commit it.  We will go
 through the same process. First we change the file in our working directory.</p>
 
-<center><img width="500px" src="/images/reset/ex5.png"/></center><br/>
+<center><img width="500px" src="/assets/reset/ex5.png"/></center><br/>
 
 <p>If we run <code>git status</code> right now we'll see the file in red as
 "changed but not updated" because that entry differs between our Index and our
 Working Directory. Next we run <code>git add</code> on it to stage it into our
 Index.<p>
 
-<center><img width="500px" src="/images/reset/ex6.png"/></center><br/>
+<center><img width="500px" src="/assets/reset/ex6.png"/></center><br/>
 
 <p>At this point if we run <code>git status</code> we will see the file in green
 under 'Changes to be Committed' because the Index and HEAD differ - that is, our
@@ -180,7 +180,7 @@ proposed next commit is now different from our last commit.  Those are the entri
 we will see as 'to be Committed'. Finally, we run <code>git commit</code> to
 finalize the commit.</p>
 
-<center><img width="500px" src="/images/reset/ex7.png"/></center><br/>
+<center><img width="500px" src="/assets/reset/ex7.png"/></center><br/>
 
 <p>Now <code>git status</code> will give us no output because all three trees
 are the same.</p>
@@ -210,7 +210,7 @@ changes the SHA of the reference itself.  This means if HEAD is pointing to the
 'master' point to <code>9e5e64a</code> before it does anything else.
 </p>
 
-<center><img width="500px" src="/images/reset/reset-soft.png"/></center><br/>
+<center><img width="500px" src="/assets/reset/reset-soft.png"/></center><br/>
 
 <p>No matter what form of <code>reset</code> with a commit you invoke, this is
 the first thing it will always try to do. If you add the flag <code>--soft</code>,
@@ -234,11 +234,11 @@ would have done.</p>
 <p>Note that if you run <code>git status</code> now you'll see the in green the
 difference between the Index and what the new HEAD is.</p>
 
-<p>The next thing <code>reset</code> will do 
+<p>The next thing <code>reset</code> will do
 is to update the Index with the contents of whatever tree HEAD now
 points to so they're the same.</p>
 
-<center><img width="500px" src="/images/reset/reset-mixed.png"/></center><br/>
+<center><img width="500px" src="/assets/reset/reset-mixed.png"/></center><br/>
 
 <p>If you specify the <code>--mixed</code> option, <code>reset</code> will stop
 at this point.  This is also the default, so if you specify no option at all,
@@ -259,7 +259,7 @@ You rolled back to before you ran all your <code>git add</code>s <i>AND</i>
 Directory look like the Index.  If you use the <code>--hard</code> option, it
 will continue to this stage.</p>
 
-<center><img width="500px" src="/images/reset/reset-hard.png"/></center><br/>
+<center><img width="500px" src="/assets/reset/reset-hard.png"/></center><br/>
 
 <p>Finally, take yet a third second to look at <i>that</i> diagram and think
 about what happened.  You undid your last commit, all the <code>git add</code>s,
@@ -306,7 +306,7 @@ with previously committed content this way.
 
 <p>So, assume we run <code>git reset file.txt</code>.  This assumes, since you
 did not specify a commit SHA or branch that points to a commit SHA, and that you
-provided no reset option, that you are typing the shorthand for 
+provided no reset option, that you are typing the shorthand for
 <code>git reset --mixed HEAD file.txt</code>, which will:
 
 <ul>
@@ -317,7 +317,7 @@ provided no reset option, that you are typing the shorthand for
 <p>So it essentially just takes whatever <code>file.txt</code> looks like in
 HEAD and puts that in the Index.</p>
 
-<center><img width="500px" src="/images/reset/reset-path1.png"/></center><br/>
+<center><img width="500px" src="/assets/reset/reset-path1.png"/></center><br/>
 
 <p>So what does that do in a practical sense?  Well, it <i>unstages</i> the
 file.  If we look at the diagram for that command vs what <code>git add</code>
@@ -325,13 +325,13 @@ does, we can see that it is simply the opposite.  This is why the output of
 the <code>git status</code> command suggests that you run this to unstage a
 file.</p>
 
-<center><img width="500px" src="/images/reset/reset-path2.png"/></center><br/>
+<center><img width="500px" src="/assets/reset/reset-path2.png"/></center><br/>
 
 <p>We could just as easily not let Git assume we meant "pull the data from HEAD"
 by specifying a specific commit to pull that file version from to populate our
 Index by running something like <code>git reset eb43bf file.txt</code>.
 
-<center><img width="500px" src="/images/reset/reset-path3.png"/></center><br/>
+<center><img width="500px" src="/assets/reset/reset-path3.png"/></center><br/>
 
 <p>So what does that mean?  That functionally does the same thing as if we had
 reverted the content of the file to <b>v1</b>, ran <code>git add</code> on it,
@@ -361,16 +361,16 @@ where the first commit has one file, the second commit added a new file and chan
 the first, and the third commit changed the first file again. The second commit
 was a work in progress and you want to squash it down.</p>
 
-<center><img width="500px" src="/images/reset/squash-r1.png"/></center><br/>
+<center><img width="500px" src="/assets/reset/squash-r1.png"/></center><br/>
 
 <p>You can run <code>git reset --soft HEAD~2</code> to move the HEAD
 branch back to an older commit (the first commit you want to keep):</p>
 
-<center><img width="500px" src="/images/reset/squash-r2.png"/></center><br/>
+<center><img width="500px" src="/assets/reset/squash-r2.png"/></center><br/>
 
 <p>And then simply run <code>git commit</code> again:</p>
 
-<center><img width="500px" src="/images/reset/squash-r3.png"/></center><br/>
+<center><img width="500px" src="/assets/reset/squash-r3.png"/></center><br/>
 
 <p>
 Now you can see that your reachable history, the history you would push,
@@ -417,7 +417,7 @@ cases we're moving HEAD to point to commit A, but <i>how</i> we do so is very
 different.  <code>reset</code> will move the branch HEAD points to,
 <code>checkout</code> moves HEAD itself to point to another branch.</p>
 
-<center><img width="500px" src="/images/reset/reset-checkout.png"/></center><br/>
+<center><img width="500px" src="/assets/reset/reset-checkout.png"/></center><br/>
 
 <h3>git checkout [branch] file</h3>
 
